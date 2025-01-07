@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: ProductService
+
+  datasource:
+    url: jdbc:postgresql://ap-south-1.000a698e-9531-4f05-81c7-2b0e60704508.aws.yugabyte.cloud:5433/product_db
+    username: admin
+    password: LMI7EUdijsBdjbKs6rrRdTBWBs2Irw
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      data-source-properties:
+        ssl: true
+        sslmode: require
+        sslrootcert: file:///C:/Users/hp/Downloads/root.crt
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          url: jdbc:postgresql://ap-south-1.000a698e-9531-4f05-81c7-2b0e60704508.aws.yugabyte.cloud:5433/product_db
+
+server:
+  port: 8083
