@@ -1,8 +1,7 @@
 package com.LostAndFound.ProductService.controller;
 
-import com.LostAndFound.ProductService.entities.FoundItem;
-import com.LostAndFound.ProductService.entities.LostItem;
-import com.LostAndFound.ProductService.services.LostItemService;
+import com.LostAndFound.ProductService.entity.LostItem;
+import com.LostAndFound.ProductService.service.LostItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,35 +13,30 @@ public class LostItemController {
     @Autowired
     LostItemService lostItemService;
 
-    //to save LostItem data into DB
     @PostMapping
-    public ResponseEntity<LostItem> saveLostItem(@RequestBody LostItem lostItem)
-    {
-        return ResponseEntity.ok(lostItemService.saveLostItem(lostItem));
+    public ResponseEntity<LostItem> reportLostItem(@RequestBody LostItem lostItem) {
+        return ResponseEntity.ok(lostItemService.reportLostItem(lostItem));
     }
-    //to Fetch All LostItemList from DB
+
     @GetMapping
-    public ResponseEntity<Iterable<LostItem>> getAllLostItemList()
-    {
+    public ResponseEntity<Iterable<LostItem>> getAllLostItemsList() {
         return ResponseEntity.ok(lostItemService.getAllLostItemList());
     }
 
-    // Get an LostItem By ID
     @GetMapping("/{id}")
-    public ResponseEntity<LostItem> lostItemById(@PathVariable int id) {
+    public ResponseEntity<LostItem> getlostItemById(@PathVariable int id) {
 
-        return ResponseEntity.ok(lostItemService.findlostItemById(id));
+        return ResponseEntity.ok(lostItemService.findLostItemById(id));
     }
-    //delete FoundItem into DB by ID
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteLostItem(@PathVariable int id) {
         lostItemService.deleteLostItem(id);
         return ResponseEntity.noContent().build();
     }
 
-    //update FoundItem By ID
     @PutMapping("/{id}")
-    public ResponseEntity<LostItem> updateOrderItem(@PathVariable int id, @RequestBody LostItem lostItem) {
+    public ResponseEntity<LostItem> updateLostItem(@PathVariable int id, @RequestBody LostItem lostItem) {
         LostItem updatedLostItem = lostItemService.updateLostItem(id, lostItem);
         return ResponseEntity.ok(updatedLostItem);
     }

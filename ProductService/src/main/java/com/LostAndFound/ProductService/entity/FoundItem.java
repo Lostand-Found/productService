@@ -1,4 +1,4 @@
-package com.LostAndFound.ProductService.entities;
+package com.LostAndFound.ProductService.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
