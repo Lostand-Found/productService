@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import java.util.UUID;
 import java.util.List;
 
 @Service
@@ -17,13 +18,13 @@ public class ProductServiceImpl implements ProductService {
     ProductRepository productRepo;
 
     @Override
-    public ApiResponse addItem(ProductDto productDto) {
+    public ApiResponse addItem(ProductDto productDto, UUID userId) {
         Product product = new Product();
         product.setName(productDto.getName());
         product.setDescription(productDto.getDescription());
         product.setCategory(productDto.getCategory());
         product.setStatus(productDto.getStatus());
-        product.setOwnerId(productDto.getOwnerId());
+        product.setOwnerId(userId);
         product.setLocation(productDto.getLocation());
         product.setCreatedAt(LocalDateTime.now());
         product.setUpdatedAt(LocalDateTime.now());
