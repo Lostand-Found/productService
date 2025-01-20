@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -31,5 +32,10 @@ public class ProductServiceImpl implements ProductService {
                 .message("Successfully reported")
                 .statusCode(HttpStatus.CREATED)
                 .success(true).build();
+    }
+
+    @Override
+    public List<Product> searchItems(String category, String location, String keyword) {
+        return productRepo.searchItems(category, location, keyword);
     }
 }
