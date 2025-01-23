@@ -16,7 +16,7 @@ public class KafkaEventConsumer {
 
     @KafkaListener(topics = "user-product-topic", groupId = "product-service-group")
     public void consumeUserProductMessage(UserProducerMessage userProducerMessage) {
-        UUID userId = userProducerMessage.getUserId();
+        Long userId = userProducerMessage.getUserId();
         List<ProductDto> products = userProducerMessage.getProducts();
         System.out.println("Consumed message for user ID: " + userId);
         for(ProductDto productDto:products)

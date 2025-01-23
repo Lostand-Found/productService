@@ -7,6 +7,6 @@ import java.util.UUID;
 
 public interface ProductService
 {
-    public ApiResponse addItem(ProductDto productDto, UUID userId);
+    public ApiResponse addItem(ProductDto productDto, Long userId);
 
 }
