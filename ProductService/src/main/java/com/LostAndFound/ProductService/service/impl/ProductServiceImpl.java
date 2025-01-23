@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService {
     ProductRepository productRepo;
 
     @Override
-    public ApiResponse addItem(ProductDto productDto, UUID userId) {
+    public ApiResponse addItem(ProductDto productDto, Long userId) {
         Product product = new Product();
         product.setName(productDto.getName());
         product.setDescription(productDto.getDescription());

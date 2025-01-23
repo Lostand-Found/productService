@@ -11,13 +11,13 @@ public class Product
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID productId;
+    private Long productId;
     private String name;
     private String description;
     private String category;
     @Enumerated(EnumType.STRING)
     private StatusEnum status;
-    private UUID ownerId;
+    private Long ownerId;
     private String location;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -25,11 +25,11 @@ public class Product
     public Product() {
     }
 
-    public UUID getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(UUID productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
@@ -65,11 +65,11 @@ public class Product
         this.status = status;
     }
 
-    public UUID getOwnerId() {
+    public Long getOwnerId() {
         return ownerId;
     }
 
-    public void setOwnerId(UUID ownerId) {
+    public void setOwnerId(Long ownerId) {
         this.ownerId = ownerId;
     }
 
